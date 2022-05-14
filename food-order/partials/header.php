@@ -65,7 +65,7 @@
                 if (isset($_SESSION['student-user'])) {
                     echo
                     "<div class='navbar order-last order-lg-1'>
-                    <a href='view-cart.php'><i class='fas fa-shopping-cart fa-2x'></i></a>
+                    <a onclick='submit_orders();' style = 'cursor: pointer;'><i class='fas fa-shopping-cart fa-2x'></i></a>
 
                     <span class='dropdown'>                    
                         <a class='btn' href='#' role='button' id='dropdownMenuLink' data-bs-toggle='dropdown' aria-expanded='false'>
