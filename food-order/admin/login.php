@@ -53,7 +53,7 @@
 
         // 1. Get data from login form
         $username = $_POST['username'];
-        $password = ($_POST['password']);
+        $password = md5($_POST['password']);
 
         // 2. Check whether username and password are correct
         $sql = "SELECT * FROM tbl_admin WHERE username = '$username' AND password = '$password' ";
