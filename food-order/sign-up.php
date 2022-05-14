@@ -5,28 +5,36 @@
   <section class="breadcrumbs">
     <div class="container">
 
+    <script src="js\freebie.js"></script>
       <div class="d-flex justify-content-between login-parent">
 
         <div class="login-form">
             <form action="" method="POST">
 
-              <input type="text" name="full_name" placeholder="Full Name" class="login-inputs">
+              <input type="text" name="full_name" required placeholder="Full Name" class="login-inputs">
               <br><br>
 
-              <input type="text" name="contact_number" placeholder="Contact Number" class="login-inputs">
+              <input type="text" name="contact_number" required placeholder="Contact Number" class="login-inputs">
               <br><br>
 
-              <input type="text" name="email" placeholder="Email Address" class="login-inputs">
+              <input type="text" name="email" required placeholder="Email Address" class="login-inputs">
               <br><br>
 
-              <input type="text" name="username" placeholder="Username (Only Letters and Digits)" class="login-inputs">
+              <input type="text" name="username" required placeholder="Username (Only Letters and Digits)" class="login-inputs">
               <br><br>
               
-              <input type="password" name="password" placeholder="Password" class="login-inputs">
+              <input type="password" name="password" required placeholder="Password" class="login-inputs">
               <br><br>
 
-              <input type="password" name="confirm_password" placeholder="Confirm Password" class="login-inputs">
+              <input type="password" name="confirm_password" required placeholder="Confirm Password" class="login-inputs">
               <br><br>
+
+              Choose Delivery Location:<br>
+              <input type="radio" name="location" value="Flavors of the North" required>Flavors of the North<br>
+              <input type="radio" name="location" value="Hostel Stilt Area" required>Hostel Stilt Area<br>
+              <input type="radio" name="location" value="Banana Leaf" required>Banana Leaf<br>
+              <input type="radio" name="location" value="Dining Hall" required>Dining Hall<br><br>
+
 
               <input type="submit" name = "submit" value="sign up" class="book-a-table-btn submit-button">
               <br><br><br>
@@ -87,6 +95,7 @@
     $username = $_POST['username'];
     $password = md5($_POST['password']);
     $confirm_password = md5($_POST['confirm_password']);
+    $location = $_POST['location'];
 
     // Full name to camel case
     $full_name = ucwords($full_name);
@@ -153,7 +162,7 @@
 
 
     // Entering information into database
-    $sql2 = "INSERT INTO tbl_user VALUES ('$full_name', '$contact_number', '$email', '$username', '$password')";
+    $sql2 = "INSERT INTO tbl_user VALUES ('$full_name', '$contact_number', '$email', '$username', '$location', '$password')";
     $res2 = mysqli_query($conn, $sql2);
 
     if ($res2 == TRUE) {

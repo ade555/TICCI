@@ -56,7 +56,7 @@
         $password = md5($_POST['password']);
 
         // 2. Check whether username and password are correct
-        $sql = "SELECT * FROM tbl_admin WHERE username = '$username' AND password = '$password'";
+        $sql = "SELECT * FROM tbl_admin WHERE username = '$username' AND password = '$password' ";
         $res = mysqli_query($conn, $sql);
 
         // 4. Count rows to check whether the user exists or not
